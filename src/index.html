@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="../dist/style.css" />
+
+    <title>Frontend Mentor | Crowdfunding product page</title>
+  </head>
+  <body class="bg-[#FAFAFA] font-['Commissioner']">
+    <!-- MOBILE MENU START -->
+    <div
+      id="mobile-menu"
+      class="pointer-events-none fixed left-0 top-0 z-20 h-full w-full bg-gradient-to-b from-black/60 to-black/[0.0001] px-[6.4vw] pt-[5.5rem] opacity-0 transition-[opacity] duration-300 ease-in"
+    >
+      <div
+        id="mobile-nav"
+        class="flex h-auto w-full scale-0 flex-col rounded-[8px] border border-solid border-black/[0.0497] bg-white transition-[transform,] duration-300 ease-in"
+      >
+        <a
+          href=""
+          class="border-b-[0.5px] border-solid border-[#2F2F2F]/10 p-6 text-[1.125rem] font-medium leading-[1.375rem] tracking-normal text-black"
+        >
+          About</a
+        >
+        <a
+          href=""
+          class="border-b-[0.5px] border-t-[0.5px] border-solid border-[#2F2F2F]/10 p-6 text-[1.125rem] font-medium leading-[1.375rem] tracking-normal text-black"
+        >
+          Discover</a
+        >
+        <a
+          href=""
+          class="border-t-[0.5px] border-solid border-[#2F2F2F]/10 p-6 text-[1.125rem] font-medium leading-[1.375rem] tracking-normal text-black"
+        >
+          Get Started</a
+        >
+      </div>
+    </div>
+    <!-- MOBILE MENU END -->
+
+    <!-- MODAL START -->
+    <div
+      id="modal-overlay"
+      class="pointer-events-none fixed top-0 left-0 z-40 block h-[100vh] w-full bg-black/50 opacity-0 transition-opacity duration-500 ease-in"
+    ></div>
+    <div
+      id="modal"
+      class="pointer-events-none fixed left-0 top-0 z-50 mx-[6.4vw] mt-[7.563rem] mb-[7.5rem] h-[80vh] w-[87.2vw] scale-0 overflow-x-hidden overflow-y-scroll rounded-[8px] border border-solid border-black/[0.0497] bg-white opacity-0 transition-[transform,_opacity] duration-500 ease-in xl:mx-[24.65vw] xl:mb-0 xl:mt-[10vh] xl:w-[50.69vw] xl:p-12"
+    >
+      <div
+        class="flex h-auto w-[87.2vw] flex-col gap-6 px-[6.4vw] py-[2rem] xl:w-full xl:gap-8 xl:p-0"
+      >
+        <div class="flex flex-col gap-6 xl:gap-4">
+          <div class="flex items-center justify-between">
+            <h2
+              class="text-lg font-bold leading-[1.375rem] tracking-normal text-black xl:text-2xl xl:leading-[1.813rem]"
+            >
+              Back this project
+            </h2>
+            <button id="modal-close-button" class="group xl:-mt-12 xl:-mr-4">
+              <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  class="group-hover:opacity-100 group-active:opacity-100"
+                  d="M11.314 0l2.828 2.828L9.9 7.071l4.243 4.243-2.828 2.828L7.07 9.9l-4.243 4.243L0 11.314 4.242 7.07 0 2.828 2.828 0l4.243 4.242L11.314 0z"
+                  fill="#000"
+                  fill-rule="evenodd"
+                  opacity=".4"
+                />
+              </svg>
+            </button>
+          </div>
+          <p
+            class="text-[0.875rem] font-normal leading-6 tracking-normal text-[#7A7A7A] xl:text-base xl:leading-[1.875rem]"
+          >
+            Want to support us in bringing Mastercraft Bamboo Monitor Riser out
+            in the world?
+          </p>
+        </div>
+
+        <form class="flex flex-col gap-6">
+          <div
+            class="selection option flex h-auto w-full flex-col gap-8 overflow-x-hidden rounded-[8px] border border-solid border-black/[0.15] px-[6.4vw] py-[2rem] transition-opacity duration-300 ease-in xl:gap-8 xl:px-[1.75rem] xl:pt-8 xl:pb-6"
+          >
+            <div class="flex flex-col gap-8 xl:gap-[1.063rem]">
+              <div
+                class="select flex items-center gap-4 xl:items-start xl:gap-6"
+              >
+                <input
+                  class="hidden h-6 w-6 cursor-pointer"
+                  type="radio"
+                  name="select-reward"
+                  value="noReward"
+                  id="no-reward"
+                />
+                <label
+                  class="flex cursor-pointer flex-row items-center gap-4 text-[0.875rem] font-bold leading-[1.063rem] tracking-normal text-black hover:text-[#3CB3AB] active:text-[#3CB3AB] xl:gap-6 xl:text-base xl:leading-5"
+                  for="no-reward"
+                >
+                  <div
+                    class="radio-circle relative block h-[1.5rem] w-[1.5rem] rounded-full border border-solid border-black/[0.15] transition-[border-color] duration-300 ease-in after:absolute after:top-[3px] after:left-[3px] after:block after:h-4 after:w-4 after:scale-0 after:rounded-full after:bg-[#3CB3AB] after:transition-[transform] after:duration-300 after:ease-in after:content-['']"
+                    id="radio-circle"
+                  ></div>
+                  Pledge with no reward</label
+                >
+              </div>
+              <p
+                class="text-[0.875rem] font-normal leading-6 tracking-normal text-[#7A7A7A] xl:ml-12 xl:text-[0.938rem] xl:leading-[1.75rem]"
+              >
+                Choose to support us without a reward if you simply believe in
+                our project. As a backer, you will be signed up to receive
+                product updates via email.
+              </p>
+            </div>
+            <div
+              class="enter-pledge ml-[-6.4vw] hidden h-auto w-[74.4vw] flex-col items-center justify-center gap-4 border-t border-solid border-black/[0.15] px-6 pt-6 xl:relative xl:ml-[-1.94vw] xl:w-[44.02vw] xl:flex-row xl:justify-between xl:px-[1.75rem]"
+            >
+              <p
+                class="text-center text-[0.875rem] font-normal leading-[1.75rem] tracking-normal text-[#7A7A7A] xl:text-[0.938rem] xl:leading-[1.75rem]"
+              >
+                Enter your pledge
+              </p>
+              <div
+                class="flex w-full items-center justify-center gap-4 xl:w-[13.938rem]"
+              >
+                <div
+                  class="flex h-[3rem] w-[6.25rem] items-center justify-center gap-2 rounded-[33.5px] border border-solid border-black/[0.15] bg-white py-[0.938rem] pl-[1.5rem] pr-4"
+                >
+                  <img src="../images/icon-dollar-sign.svg" alt="" />
+                  <input
+                    type="number"
+                    name="pledge-0"
+                    id="option1"
+                    placeholder="0.00"
+                    autocomplete="off"
+                    value=""
+                    class="appearance-textfield flex h-[1.063rem] w-full items-center text-left align-middle text-[0.875rem] font-bold leading-[1.063rem] tracking-normal text-black focus:outline-none"
+                  />
+                </div>
+                <button
+                  class="continue-button flex h-[3rem] w-[7.188rem] items-center justify-center rounded-[33.5px] bg-[#3CB3AB] px-[1.625rem] py-[1.063rem] align-middle text-[0.875rem] font-bold leading-[1.063rem] tracking-normal text-white"
+                >
+                  Continue
+                </button>
+              </div>
+              <p
+                class="error-message hidden text-[0.875rem] font-normal leading-[1.75rem] tracking-normal text-red-500 xl:absolute xl:bottom-0 xl:right-28 xl:-mb-5 xl:text-xs"
+              >
+                Please enter valid amount
+              </p>
+            </div>
+          </div>
+          <div
+            class="selection option bamboo flex h-auto w-full flex-col gap-6 overflow-hidden rounded-[8px] border border-solid border-black/[0.15] px-[6.4vw] py-[2rem] transition-opacity duration-300 ease-in xl:gap-8 xl:px-[1.75rem] xl:pt-8 xl:pb-6"
+          >
+            <div class="flex flex-col gap-6 xl:relative xl:gap-[1.063rem]">
+              <div
+                class="select flex items-center gap-4 xl:items-start xl:gap-6"
+              >
+                <input
+                  class="group hidden h-6 w-6 cursor-pointer"
+                  type="radio"
+                  name="select-reward"
+                  value="bamboo"
+                  id="bamboo"
+                />
+                <div class="flex flex-col gap-0 xl:flex-row xl:gap-[1.063rem]">
+                  <label
+                    class="flex cursor-pointer flex-row items-start gap-4 text-[0.875rem] font-bold leading-[1.063rem] tracking-normal text-black hover:text-[#3CB3AB] active:text-[#3CB3AB] xl:gap-6 xl:text-base xl:leading-5"
+                    for="bamboo"
+                  >
+                    <div
+                      class="radio-circle relative block h-[1.5rem] w-[1.5rem] rounded-full border border-solid border-black/[0.15] transition-[border-color] duration-300 ease-in after:absolute after:top-[3px] after:left-[3px] after:block after:h-4 after:w-4 after:scale-0 after:rounded-full after:bg-[#3CB3AB] after:transition-[transform] after:duration-300 after:ease-in after:content-['']"
+                      id="radio-circle"
+                    ></div>
+                    Bamboo Stand</label
+                  >
+                  <p
+                    class="ml-10 text-[0.875rem] font-medium leading-[1.063rem] tracking-normal text-[#3CB3AB] xl:ml-0 xl:text-base xl:leading-[1.25rem]"
+                  >
+                    Pledge $25 or more
+                  </p>
+                </div>
+              </div>
+              <p
+                class="text-[0.875rem] font-normal leading-6 tracking-normal text-[#7A7A7A] xl:ml-12 xl:text-[0.938rem] xl:leading-[1.75rem]"
+              >
+                You get an ergonomic stand made of natural bamboo. You've helped
+                us launch our promotional campaign, and you’ll be added to a
+                special Backer member list.
+              </p>
+              <p
+                class="flex items-center gap-2 text-[0.938rem] font-normal leading-[1.125rem] tracking-normal text-[#7A7A7A] xl:absolute xl:top-0 xl:right-0"
+              >
+                <span
+                  class="text-lg font-bold leading-[1.375rem] tracking-normal text-black"
+                  >101</span
+                >
+                left
+              </p>
+            </div>
+
+            <div
+              class="enter-pledge ml-[-6.4vw] hidden h-auto w-[74.4vw] flex-col items-center justify-center gap-4 border-t border-solid border-black/[0.15] px-6 pt-6 xl:relative xl:ml-[-1.94vw] xl:w-[44.02vw] xl:flex-row xl:justify-between xl:px-[1.75rem]"
+            >
+              <p
+                class="text-center text-[0.875rem] font-normal leading-[1.75rem] tracking-normal text-[#7A7A7A] xl:text-[0.938rem] xl:leading-[1.75rem]"
+              >
+                Enter your pledge
+              </p>
+              <div
+                class="flex w-full items-center justify-center gap-4 xl:w-[13.938rem]"
+              >
+                <div
+                  class="flex h-[3rem] w-[6.25rem] items-center justify-center gap-2 rounded-[33.5px] border border-solid border-black/[0.15] bg-white py-[0.938rem] pl-[1.5rem] pr-4"
+                >
+                  <img src="../images/icon-dollar-sign.svg" alt="" />
+                  <input
+                    type="number"
+                    name="pledge-25"
+                    id="option2"
+                    placeholder="25"
+                    autocomplete="off"
+                    value=""
+                    class="appearance-textfield flex h-[1.063rem] w-full items-center text-left align-middle text-[0.875rem] font-bold leading-[1.063rem] tracking-normal text-black focus:outline-none"
+                  />
+                </div>
+                <button
+                  class="continue-button flex h-[3rem] w-[7.188rem] items-center justify-center rounded-[33.5px] bg-[#3CB3AB] px-[1.625rem] py-[1.063rem] align-middle text-[0.875rem] font-bold leading-[1.063rem] tracking-normal text-white"
+                >
+                  Continue
+                </button>
+              </div>
+              <p
+                class="error-message hidden text-[0.875rem] font-normal leading-[1.75rem] tracking-normal text-red-500 xl:absolute xl:bottom-0 xl:right-28 xl:-mb-5 xl:text-xs"
+              >
+                Please enter valid amount
+              </p>
+            </div>
+          </div>
+          <div
+            class="selection option black flex h-auto w-full flex-col gap-6 overflow-hidden rounded-[8px] border border-solid border-black/[0.15] px-[6.4vw] py-[2rem] transition-opacity duration-300 ease-in xl:gap-8 xl:px-[1.75rem] xl:pt-8 xl:pb-6"
+          >
+            <div class="flex flex-col gap-6 xl:relative xl:gap-[1.063rem]">
+              <div
+                class="select flex items-center gap-4 xl:items-start xl:gap-6"
+              >
+                <input
+                  class="hidden h-6 w-6 cursor-pointer"
+                  type="radio"
+                  name="select-reward"
+                  value="black"
+                  id="black"
+                />
+                <div class="flex flex-col gap-0 xl:flex-row xl:gap-[1.063rem]">
+                  <label
+                    class="flex cursor-pointer flex-row items-start gap-4 text-[0.875rem] font-bold leading-[1.063rem] tracking-normal text-black hover:text-[#3CB3AB] active:text-[#3CB3AB] xl:gap-6 xl:text-base xl:leading-5"
+                    for="black"
+                  >
+                    <div
+                      class="radio-circle relative block h-[1.5rem] w-[1.5rem] rounded-full border border-solid border-black/[0.15] transition-[border-color] duration-300 ease-in after:absolute after:top-[3px] after:left-[3px] after:block after:h-4 after:w-4 after:scale-0 after:rounded-full after:bg-[#3CB3AB] after:transition-[transform] after:duration-300 after:ease-in after:content-['']"
+                      id="radio-circle"
+                    ></div>
+                    Black Edition Stand</label
+                  >
+                  <p
+                    class="ml-10 text-[0.875rem] font-medium leading-[1.063rem] tracking-normal text-[#3CB3AB] xl:ml-0 xl:text-base xl:leading-[1.25rem]"
+                  >
+                    Pledge $75 or more
+                  </p>
+                </div>
+              </div>
+              <p
+                class="text-[0.875rem] font-normal leading-6 tracking-normal text-[#7A7A7A] xl:ml-12 xl:text-[0.938rem] xl:leading-[1.75rem]"
+              >
+                You get a Black Special Edition computer stand and a personal
+                thank you. You’ll be added to our Backer member list. Shipping
+                is included.
+              </p>
+              <p
+                class="flex items-center gap-2 text-[0.938rem] font-normal leading-[1.125rem] tracking-normal text-[#7A7A7A] xl:absolute xl:top-0 xl:right-0"
+              >
+                <span
+                  class="text-lg font-bold leading-[1.375rem] tracking-normal text-black"
+                  >64</span
+                >
+                left
+              </p>
+            </div>
+
+            <div
+              class="enter-pledge relative ml-[-6.4vw] hidden h-auto w-[74.4vw] flex-col items-center justify-center gap-4 border-t border-solid border-black/[0.15] px-6 pt-6 xl:relative xl:ml-[-1.94vw] xl:w-[44.02vw] xl:flex-row xl:justify-between xl:px-[1.75rem]"
+            >
+              <p
+                class="text-center text-[0.875rem] font-normal leading-[1.75rem] tracking-normal text-[#7A7A7A] xl:text-[0.938rem] xl:leading-[1.75rem]"
+              >
+                Enter your pledge
+              </p>
+              <div
+                class="flex w-full items-center justify-center gap-4 xl:w-[13.938rem]"
+              >
+                <div
+                  class="flex h-[3rem] w-[6.25rem] items-center justify-center gap-2 rounded-[33.5px] border border-solid border-black/[0.15] bg-white py-[0.938rem] pl-[1.5rem] pr-4"
+                >
+                  <img src="../images/icon-dollar-sign.svg" alt="" />
+                  <input
+                    type="number"
+                    name="pledge-75"
+                    id="option3"
+                    placeholder="75"
+                    autocomplete="off"
+                    value=""
+                    class="appearance-textfield flex h-[1.063rem] w-full items-center text-left align-middle text-[0.875rem] font-bold leading-[1.063rem] tracking-normal text-black focus:outline-none"
+                  />
+                </div>
+                <button
+                  class="continue-button flex h-[3rem] w-[7.188rem] items-center justify-center rounded-[33.5px] bg-[#3CB3AB] px-[1.625rem] py-[1.063rem] align-middle text-[0.875rem] font-bold leading-[1.063rem] tracking-normal text-white"
+                >
+                  Continue
+                </button>
+              </div>
+              <p
+                class="error-message hidden text-[0.875rem] font-normal leading-[1.75rem] tracking-normal text-red-500 xl:absolute xl:bottom-0 xl:right-28 xl:-mb-5 xl:text-xs"
+              >
+                Please enter valid amount
+              </p>
+            </div>
+          </div>
+          <div
+            class="selection option mahogany pointer-events-none flex h-auto w-full flex-col gap-6 rounded-[8px] border border-solid border-black/[0.15] px-[6.4vw] py-[2rem] opacity-50 transition-opacity duration-300 ease-in xl:gap-8 xl:px-[1.75rem] xl:pt-8 xl:pb-6"
+          >
+            <div class="flex flex-col gap-6 xl:relative xl:gap-[1.063rem]">
+              <div
+                class="select flex items-center gap-4 xl:items-start xl:gap-6"
+              >
+                <input
+                  class="hidden h-6 w-6 cursor-pointer"
+                  type="radio"
+                  name="select-reward"
+                  value="mahogany"
+                  id="mahogany"
+                />
+                <div class="flex flex-col gap-0 xl:flex-row xl:gap-[1.063rem]">
+                  <label
+                    class="flex cursor-pointer flex-row items-start gap-4 text-[0.875rem] font-bold leading-[1.063rem] tracking-normal text-black hover:text-[#3CB3AB] active:text-[#3CB3AB] xl:gap-6 xl:text-base xl:leading-5"
+                    for="mahogany"
+                  >
+                    <div
+                      class="radio-circle relative block h-[1.5rem] w-[1.5rem] rounded-full border border-solid border-black/[0.15] transition-[border-color] duration-300 ease-in after:absolute after:top-[3px] after:left-[3px] after:block after:h-4 after:w-4 after:scale-0 after:rounded-full after:bg-[#3CB3AB] after:transition-[transform] after:duration-300 after:ease-in after:content-['']"
+                      id="radio-circle"
+                    ></div>
+                    Mahogany Special Edition</label
+                  >
+                  <p
+                    class="ml-10 text-[0.875rem] font-medium leading-[1.063rem] tracking-normal text-[#3CB3AB] xl:ml-0 xl:text-base xl:leading-[1.25rem]"
+                  >
+                    Pledge $200 or more
+                  </p>
+                </div>
+              </div>
+              <p
+                class="text-[0.875rem] font-normal leading-6 tracking-normal text-[#7A7A7A] xl:ml-12 xl:text-[0.938rem] xl:leading-[1.75rem]"
+              >
+                You get two Special Edition Mahogany stands, a Backer T-Shirt,
+                and a personal thank you. You’ll be added to our Backer member
+                list. Shipping is included.
+              </p>
+              <p
+                class="flex items-center gap-2 text-[0.938rem] font-normal leading-[1.125rem] tracking-normal text-[#7A7A7A] xl:absolute xl:top-0 xl:right-0"
+              >
+                <span
+                  class="text-lg font-bold leading-[1.375rem] tracking-normal text-black"
+                  >0</span
+                >
+                left
+              </p>
+            </div>
+
+            <div
+              class="enter-pledge ml-[-6.4vw] hidden h-auto w-[74.4vw] flex-col items-center justify-center gap-4 border-t border-solid border-black/[0.15] px-6 pt-6 xl:relative xl:ml-[-1.94vw] xl:w-[44.02vw] xl:flex-row xl:justify-between xl:px-[1.75rem]"
+            >
+              <p
+                class="text-center text-[0.875rem] font-normal leading-[1.75rem] tracking-normal text-[#7A7A7A] xl:text-[0.938rem] xl:leading-[1.75rem]"
+              >
+                Enter your pledge
+              </p>
+              <div
+                class="flex w-full items-center justify-center gap-4 xl:w-[13.938rem]"
+              >
+                <div
+                  class="flex h-[3rem] w-[6.25rem] items-center justify-center gap-2 rounded-[33.5px] border border-solid border-black/[0.15] bg-white px-[1.5rem] py-[0.938rem]"
+                >
+                  <img src="../images/icon-dollar-sign.svg" alt="" />
+                  <input
+                    type="number"
+                    name="pledge-200"
+                    id=""
+                    placeholder="200"
+                    autocomplete="off"
+                    value=""
+                    class="appearance-textfield flex h-[1.063rem] w-full items-center text-left align-middle text-[0.875rem] font-bold leading-[1.063rem] tracking-normal text-black focus:outline-none"
+                  />
+                </div>
+                <button
+                  class="continue-button flex h-[3rem] w-[7.188rem] items-center justify-center rounded-[33.5px] bg-[#3CB3AB] px-[1.625rem] py-[1.063rem] align-middle text-[0.875rem] font-bold leading-[1.063rem] tracking-normal text-white"
+                >
+                  Continue
+                </button>
+              </div>
+              <p
+                class="error-message hidden text-[0.875rem] font-normal leading-[1.75rem] tracking-normal text-red-500 xl:absolute xl:bottom-0 xl:right-28 xl:-mb-5 xl:text-xs"
+              >
+                Please enter valid amount
+              </p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- MODAL END -->
+
+    <!-- MODAL COMPLETE START -->
+    <div
+      id="confirmation"
+      class="pointer-events-none fixed left-0 top-0 z-50 h-full w-full bg-black/50 px-[6.4vw] pt-[7.563rem] opacity-0 transition-opacity duration-300 ease-in xl:px-[31.25vw] xl:pt-[20vh]"
+    >
+      <div
+        id="modal-complete"
+        class="mb-[8.875rem] flex h-auto w-[87.2vw] flex-col items-center gap-8 rounded-[8px] border border-solid border-black/[0.0497] bg-white px-[6.4vw] py-[2rem] xl:mb-0 xl:h-[28.063rem] xl:w-[37.5vw] xl:p-12"
+      >
+        <div class="flex flex-col items-center gap-6 text-center xl:gap-12">
+          <div class="xl:h-[5.625rem] xl:w-[5.625rem]">
+            <img
+              class="xl:h-[5.625rem] xl:w-[5.625rem]"
+              src="../images/icon-check.svg"
+              alt=""
+            />
+          </div>
+          <div class="flex flex-col items-center gap-6 xl:gap-4">
+            <h2
+              class="text-lg font-bold leading-[1.375rem] tracking-normal text-black xl:text-2xl xl:leading-[1.813rem]"
+            >
+              Thanks for your support!
+            </h2>
+            <p
+              class="text-center text-[0.875rem] font-normal leading-[1.75rem] tracking-normal text-[#7A7A7A] xl:text-base xl:leading-[1.875rem]"
+            >
+              Your pledge brings us one step closer to sharing Mastercraft
+              Bamboo Monitor Riser worldwide. You will get an email once our
+              campaign is completed.
+            </p>
+          </div>
+        </div>
+        <button
+          id="final-button"
+          class="flex h-12 w-[6.688rem] items-center justify-center rounded-[33.5px] bg-[#3CB3AB] px-[2rem] py-[0.938rem] text-[0.875rem] font-bold leading-[1.063] tracking-normal text-white hover:bg-[#147A73] active:bg-[#147A73]"
+        >
+          Got it!
+        </button>
+      </div>
+    </div>
+    <!-- MODAL END START -->
+
+    <div
+      id="mobile-navbar"
+      class="fixed left-0 top-0 z-20 flex h-auto w-full items-center justify-between px-[6.4vw] py-8 transition-[background,_padding] duration-300 ease-in xl:hidden"
+    >
+      <a
+        id="logo"
+        href="#"
+        class="flex items-center justify-center"
+        aria-label="home"
+      >
+        <img src="../images/logo.svg" alt="crowdfunding logo" />
+      </a>
+      <svg
+        id="open-menu"
+        class="scale-100 cursor-pointer opacity-100 transition-[transform,_opacity] duration-300 ease-in"
+        width="16"
+        height="15"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g fill="#FFF" fill-rule="evenodd">
+          <path d="M0 0h16v3H0zM0 6h16v3H0zM0 12h16v3H0z" />
+        </g>
+      </svg>
+      <svg
+        width="14"
+        height="15"
+        id="close-menu"
+        class="pointer-events-none fixed top-[2.188rem] right-[6.66vw] scale-0 cursor-pointer opacity-0 transition-[transform,_opacity,_top] duration-300 ease-in"
+      >
+        <g fill="#FFF" fill-rule="evenodd">
+          <path d="M2.404.782l11.314 11.314-2.122 2.122L.282 2.904z" />
+          <path d="M.282 12.096L11.596.782l2.122 2.122L2.404 14.218z" />
+        </g>
+      </svg>
+    </div>
+
+    <!-- HEADER START -->
+    <header
+      class="relative z-[10] h-[18.75rem] w-full bg-[url('../images/image-hero-mobile.jpg')] bg-cover bg-center bg-no-repeat px-[6.4vw] pt-[2rem] xl:h-[25rem] xl:bg-[url('../images/image-hero-desktop.jpg')] xl:px-[11.45vw] xl:pt-[3rem]"
+    >
+      <div
+        id="hero gradient"
+        class="absolute top-0 left-0 z-[-1] h-[8rem] w-full bg-gradient-to-b from-black to-black/[0.0001]"
+      ></div>
+      <nav class="hidden items-center justify-between xl:flex">
+        <div><img src="../images/logo.svg" alt="Crowdfunding logo" /></div>
+        <ul class="flex items-center justify-center gap-[2.063rem]">
+          <li>
+            <a
+              class="text-[0.813rem] font-medium leading-4 tracking-normal text-white hover:underline active:underline"
+              href=""
+              >About</a
+            >
+          </li>
+          <li>
+            <a
+              class="text-[0.813rem] font-medium leading-4 tracking-normal text-white hover:underline active:underline"
+              href=""
+              >Discover</a
+            >
+          </li>
+          <li>
+            <a
+              class="text-[0.813rem] font-medium leading-4 tracking-normal text-white hover:underline active:underline"
+              href=""
+              >Get Started</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <!-- HEADER END -->
+
+    <!-- MAIN START -->
+    <main
+      class="mt-[-5.25rem relative z-10 mx-[6.4vw] mt-[-5.25rem] mb-[4.75rem] flex h-[151.688rem] w-auto flex-col gap-6 xl:mx-[24.65vw] xl:mt-[-7.5rem] xl:h-auto"
+    >
+      <section
+        class="relative flex h-[19.5rem] w-full flex-col items-center xl:h-[18.563rem]"
+      >
+        <div class="z-10">
+          <img src="../images/logo-mastercraft.svg" alt="mastercraft logo" />
+        </div>
+        <div
+          class="absolute top-[1.75rem] flex h-[17.75rem] w-full flex-col items-center gap-6 rounded-[8px] border border-solid border-black/[0.0497] bg-white px-[6.4vw] pt-[3.25rem] pb-10 xl:h-[16.813rem] xl:gap-10 xl:px-12 xl:pb-12 xl:pt-[3.5rem]"
+        >
+          <div
+            class="flex flex-col items-center justify-center gap-4 text-center xl:gap-[0.938rem]"
+          >
+            <h1
+              class="text-xl font-bold leading-6 tracking-normal text-black xl:text-[1.75rem] xl:leading-[2.125rem]"
+            >
+              Mastercraft Bamboo <br class="xl:hidden" />
+              Monitor Riser
+            </h1>
+            <p
+              class="text-[0.875rem] font-normal leading-6 tracking-normal text-[#7A7A7A] xl:text-base xl:leading-5"
+            >
+              A beautiful & handcrafted monitor stand to reduce neck and eye
+              strain.
+            </p>
+          </div>
+          <div
+            class="flex w-full items-center justify-center gap-[0.563rem] xl:justify-between"
+          >
+            <button
+              id="button0"
+              class="h-[3.5rem] w-[13.375rem] rounded-[33.5px] bg-[#3CB3AB] px-[2.625rem] py-[1.063rem] text-base font-bold leading-[1.25rem] tracking-normal text-white hover:bg-[#147A73] active:bg-[#147A73] xl:w-[12.75rem] xl:px-9"
+              aria-label="Back this project"
+            >
+              Back this project
+            </button>
+
+            <div
+              class="group relative flex h-[3.5rem] cursor-pointer items-center justify-between rounded-[33.5px] bg-[#2F2F2F]/5 transition-[width] duration-300 ease-in xl:w-[10.875rem] xl:pr-6"
+              id="bookmark"
+              aria-label="Bookmark this project"
+            >
+              <svg class="relative" width="56" height="56">
+                <g fill="none" fill-rule="evenodd">
+                  <circle
+                    class="transition-[fill] duration-300 ease-in group-hover:fill-[#bbacac] group-active:fill-[#707070]"
+                    fill="hsl(0, 0%, 10%)"
+                    cx="28"
+                    cy="28"
+                    r="28"
+                  />
+                  <path
+                    fill="hsl(0, 0%, 100%)"
+                    d="M23 19v18l5-5.058L33 37V19z"
+                  />
+                </g>
+              </svg>
+              <p
+                class="bold hidden text-base font-bold leading-5 tracking-normal text-[#7A7A7A] transition-[color] duration-300 ease-in xl:block"
+              >
+                Bookmark
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="numbers"
+        class="flex h-[25.75rem] w-full flex-col items-center gap-8 rounded-[8px] border border-solid border-black/[0.0497] bg-white px-[6.4vw] pt-8 pb-10 xl:h-[13.25rem] xl:p-12"
+      >
+        <div
+          class="container flex flex-col items-center gap-8 transition-opacity duration-300 ease-in xl:items-start xl:gap-[2.313rem]"
+        >
+          <div
+            class="flex flex-col items-center justify-center gap-6 xl:w-[32.063rem] xl:flex-row xl:justify-start xl:gap-0"
+          >
+            <div
+              class="container flex flex-col gap-[0.563rem] text-center xl:mr-[2.625rem] xl:w-[8.563rem] xl:gap-2 xl:text-left"
+            >
+              <p
+                class="text-[2rem] font-bold leading-[2.438rem] tracking-normal text-black"
+              >
+                $<span
+                  id="total-raised"
+                  class="text-[2rem] font-bold leading-[2.438rem] tracking-normal text-black"
+                  >89,914</span
+                >
+              </p>
+              <p
+                class="text-[0.875rem] font-normal leading-[1.063rem] tracking-normal text-[#7A7A7A] xl:text-[0.938rem] xl:leading-[1.125rem]"
+              >
+                of $100,000 backed
+              </p>
+            </div>
+            <hr
+              class="h-px w-[5rem] border-[0.25px] border-solid border-black/[0.15] text-black xl:mr-[2.938rem] xl:h-[3.938rem] xl:w-px"
+            />
+            <div
+              class="flex flex-col gap-[0.563rem] text-center xl:mr-[5.688rem] xl:gap-2 xl:text-left"
+            >
+              <p
+                id="total-backers"
+                class="text-[2rem] font-bold leading-[2.438rem] tracking-normal text-black"
+              >
+                5,007
+              </p>
+              <p
+                class="text-[0.875rem] font-normal leading-[1.063rem] tracking-normal text-[#7A7A7A] xl:text-[0.938rem] xl:leading-[1.125rem]"
+              >
+                total backers
+              </p>
+            </div>
+            <hr
+              class="h-px w-[5rem] border-[0.25px] border-solid border-black/[0.15] text-black xl:mr-[2.938rem] xl:h-[3.938rem] xl:w-px"
+            />
+            <div
+              class="flex flex-col gap-[0.563rem] text-center xl:gap-2 xl:text-left"
+            >
+              <p
+                class="text-[2rem] font-bold leading-[2.438rem] tracking-normal text-black"
+              >
+                56
+              </p>
+              <p
+                class="text-[0.875rem] font-normal leading-[1.063rem] tracking-normal text-[#7A7A7A] xl:text-[0.938rem] xl:leading-[1.125rem]"
+              >
+                days left
+              </p>
+            </div>
+          </div>
+          <div
+            id="progress-bar"
+            class="relative flex h-[0.75rem] w-full items-center rounded-[33.5px] bg-[#2F2F2F]/5"
+          >
+            <div
+              class="absolute left-0 top-0 h-[0.75rem] w-[89%] rounded-[33.5px] bg-[#3CB3AB]"
+            ></div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="flex h-[103.438rem] w-full flex-col items-start gap-[2.188rem] rounded-[8px] border border-solid border-black/[0.0497] bg-white px-[6.4vw] py-10 xl:h-auto xl:gap-10 xl:p-12"
+      >
+        <div class="flex w-full flex-col gap-6 xl:gap-[2.188rem]">
+          <h2
+            class="text-lg font-bold leading-[1.375rem] tracking-normal text-black xl:text-xl xl:leading-6"
+          >
+            About this project
+          </h2>
+          <p
+            class="w-[74.4vw] text-[0.875rem] font-normal leading-6 tracking-normal text-[#7A7A7A] xl:w-full xl:text-base xl:leading-[1.875rem]"
+          >
+            The Mastercraft Bamboo Monitor Riser is a sturdy and stylish
+            platform that elevates your screen to a more comfortable viewing
+            height. Placing your monitor at eye level has the potential to
+            improve your posture and make you more comfortable while at work,
+            helping you stay focused on the task at hand. <br />
+            <br />
+            Featuring artisan craftsmanship, the simplicity of design creates
+            extra desk space below your computer to allow notepads, pens, and
+            USB sticks to be stored under the stand.
+          </p>
+        </div>
+        <div class="flex w-full flex-col items-center gap-6">
+          <div
+            class="option bamboo flex h-[23.125rem] w-full flex-col gap-6 rounded-[8px] border border-solid border-black/[0.15] p-[6.4vw] xl:h-auto xl:px-8 xl:pb-8 xl:pt-[2.375rem]"
+          >
+            <div
+              class="flex flex-col gap-2 xl:flex-row xl:items-center xl:justify-between xl:gap-0"
+            >
+              <h3
+                class="text-[0.875rem] font-bold leading-[1.063rem] tracking-normal text-black xl:text-lg xl:leading-[1.375rem]"
+              >
+                Bamboo Stand
+              </h3>
+              <p
+                class="text-[0.875rem] font-medium leading-[1.063rem] tracking-normal text-[#3CB3AB] xl:text-[0.938rem] xl:leading-[1.125rem]"
+              >
+                Pledge $25 or more
+              </p>
+            </div>
+            <p
+              class="text-[0.875rem] font-normal leading-6 tracking-normal text-[#7A7A7A] xl:text-base xl:leading-[1.875rem]"
+            >
+              You get an ergonomic stand made of natural bamboo. You've helped
+              us launch our promotional campaign, and you’ll be added to a
+              special Backer member list.
+            </p>
+            <div
+              class="flex flex-col gap-6 xl:flex-row xl:items-center xl:justify-between xl:gap-0"
+            >
+              <p
+                class="flex items-center gap-2 text-[0.938rem] font-normal leading-[1.125rem] tracking-normal text-[#7A7A7A]"
+              >
+                <span
+                  class="text-[2rem] font-bold leading-[2.438rem] tracking-normal text-black"
+                  >101</span
+                >
+                left
+              </p>
+              <button
+                id="button1"
+                class="specific h-12 w-[9.813rem] rounded-[33.5px] bg-[#3CB3AB] px-8 py-[0.938rem] align-middle text-[0.875rem] font-bold leading-[1.063] tracking-normal text-white hover:bg-[#147A73] active:bg-[#147A73]"
+              >
+                Select Reward
+              </button>
+            </div>
+          </div>
+          <div
+            class="option black flex h-[23.125rem] w-full flex-col gap-6 rounded-[8px] border border-solid border-black/[0.15] p-[6.4vw] xl:h-auto xl:px-8 xl:pb-8 xl:pt-[2.375rem]"
+          >
+            <div
+              class="flex flex-col gap-2 xl:flex-row xl:items-center xl:justify-between xl:gap-0"
+            >
+              <h3
+                class="text-[0.875rem] font-bold leading-[1.063rem] tracking-normal text-black xl:text-lg xl:leading-[1.375rem]"
+              >
+                Black Edition Stand
+              </h3>
+              <p
+                class="text-[0.875rem] font-medium leading-[1.063rem] tracking-normal text-[#3CB3AB] xl:text-[0.938rem] xl:leading-[1.125rem]"
+              >
+                Pledge $75 or more
+              </p>
+            </div>
+            <p
+              class="text-[0.875rem] font-normal leading-6 tracking-normal text-[#7A7A7A] xl:text-base xl:leading-[1.875rem]"
+            >
+              You get a Black Special Edition computer stand and a personal
+              thank you. You’ll be added to our Backer member list. Shipping is
+              included.
+            </p>
+            <div
+              class="flex flex-col gap-6 xl:flex-row xl:items-center xl:justify-between xl:gap-0"
+            >
+              <p
+                class="flex items-center gap-2 text-[0.938rem] font-normal leading-[1.125rem] tracking-normal text-[#7A7A7A]"
+              >
+                <span
+                  class="text-[2rem] font-bold leading-[2.438rem] tracking-normal text-black"
+                  >64</span
+                >
+                left
+              </p>
+              <button
+                id="button2"
+                class="specific h-12 w-[9.813rem] rounded-[33.5px] bg-[#3CB3AB] px-8 py-[0.938rem] align-middle text-[0.875rem] font-bold leading-[1.063] tracking-normal text-white hover:bg-[#147A73] active:bg-[#147A73]"
+              >
+                Select Reward
+              </button>
+            </div>
+          </div>
+          <div
+            class="option mahogany pointer-events-none flex h-[23.125rem] w-full flex-col gap-6 rounded-[8px] border border-solid border-black/[0.15] p-[6.4vw] opacity-50 xl:h-auto xl:px-8 xl:pb-8 xl:pt-[2.375rem]"
+          >
+            <div
+              class="flex flex-col gap-2 xl:flex-row xl:items-center xl:justify-between xl:gap-0"
+            >
+              <h3
+                class="text-[0.875rem] font-bold leading-[1.063rem] tracking-normal text-black xl:text-lg xl:leading-[1.375rem]"
+              >
+                Mahogany Special Edition
+              </h3>
+              <p
+                class="text-[0.875rem] font-medium leading-[1.063rem] tracking-normal text-[#3CB3AB] xl:text-[0.938rem] xl:leading-[1.125rem]"
+              >
+                Pledge $200 or more
+              </p>
+            </div>
+            <p
+              class="text-[0.875rem] font-normal leading-6 tracking-normal text-[#7A7A7A] xl:text-base xl:leading-[1.875rem]"
+            >
+              You get two Special Edition Mahogany stands, a Backer T-Shirt, and
+              a personal thank you. You’ll be added to our Backer member list.
+              Shipping is included.
+            </p>
+            <div
+              class="flex flex-col gap-6 xl:flex-row xl:items-center xl:justify-between xl:gap-0"
+            >
+              <p
+                class="flex items-center gap-2 text-[0.938rem] font-normal leading-[1.125rem] tracking-normal text-[#7A7A7A]"
+              >
+                <span
+                  class="text-[2rem] font-bold leading-[2.438rem] tracking-normal text-black"
+                  >0</span
+                >
+                left
+              </p>
+              <button
+                id="button3"
+                class="specific h-12 w-[9.813rem] rounded-[33.5px] bg-[#2F2F2F] px-8 py-[0.938rem] align-middle text-[0.875rem] font-bold leading-[1.063] tracking-normal text-white"
+              >
+                Out of Stock
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- MAIN END -->
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .appearance-textfield {
+    -moz-appearance: textfield;
+  }
+}
+
+@layer components {
+  .selection.selected .radio-circle::after {
+    transform: scale(1);
+  }
+
+  .selection.selected label {
+    color: #3cb3ab;
+  }
+}
